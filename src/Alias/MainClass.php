@@ -16,8 +16,8 @@ class MainClass extends PluginBase implements Listener {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$simpleauth = $this->getServer()->getPluginManager()->getPlugin("SimpleAuth");
 		if($simpleauth == null) {
-			$this->getLogger()->info(TextFormat::YELLOW . "You do not have SimpleAuth");
-			$this->getLogger()->info(TextFormat::YELLOW . "You can only get a players alias if he/she is online!");
+			$this->getLogger()->info(TextFormat::YELLOW . "you do not have simpleauth");
+			$this->getLogger()->info(TextFormat::YELLOW . "you can only get a players alias if he/she is online");
 		}
 	}
 
@@ -49,7 +49,7 @@ class MainClass extends PluginBase implements Listener {
 					$file = new Config($this->getDataFolder() . "players/" . $ip . ".txt");
 					$names = $file->getAll(true);
 					$names = implode(', ', $names);
-					$sender->sendMessage(TextFormat::GREEN . "[Alias] Showing players who joined from the same IP as " . $name . "...");
+					$sender->sendMessage(TextFormat::GREEN . "[Alias] showing players who joined from the same ip as " . $name . "...");
 					$sender->sendMessage(TextFormat::AQUA . $names);
 					return true;
 					break;
@@ -62,14 +62,14 @@ class MainClass extends PluginBase implements Listener {
 							$file = new Config($this->getDataFolder() . "players/" . $lastip . ".txt");
 							$names = $file->getAll(true);
 							$names = implode(', ', $names);
-							$sender->sendMessage(TextFormat::GREEN . "[Alias] Showing players who joined from the same IP as " . $name . "...");
+							$sender->sendMessage(TextFormat::GREEN . "[Alias] showing players who joined from the same ip as " . $name . "...");
 							$sender->sendMessage(TextFormat::AQUA . $names . "");
 							return true;
 						} else {
-							$sender->sendMessage(TextFormat::RED . "Player not found");
+							$sender->sendMessage(TextFormat::RED . "player not found");
 						}
 					} else {
-						$sender->sendMessage(TextFormat::RED . "SimpleAuth is not enabled, the player must be online");
+						$sender->sendMessage(TextFormat::RED . "simpleauth is not enabled the player must be online");
 					}
 				}
 				return true;
